@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: "Cinzel", serif;
+            display: flex;
+        }
+    </style>
+</head>
+<body style="display: flex; align-content: center; justify-content: center; justify-content: space-between; background-color: #EBEBEB;">
+    <div>
+        <canvas id="myChart" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+    <div>
+        <canvas id="myChart2" style="position: relative; height: 40vh; width: 40vw;"></canvas>
+    </div>
+    <h1>Dashboard com ChartJs</h1>
+</body>
+
+    <script>
+        const labels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+        const data = {
+            labels: labels,
+            datasets: [{
+                label: 'Temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                backgroundColor: '#AF0B0B',
+                borderColor: '#AF0B0B',
+                borderWidth: 2,
+            }, {
+                label: 'Umidade',
+                data: [80, 82, 80, 85, 80, 83],
+                backgroundColor: '#478ECB',
+                borderColor: '#478ECB',
+                borderWidth: 2,
+            }]
+        };
+
+        const labels2 = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'];
+        const data2 = {
+            labels: labels2,
+            datasets: [{
+                label: 'Temperatura Média',
+                data: [27, 24, 23, 22, 20, 18],
+                backgroundColor: [
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                ],
+                borderColor: [
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                '#AF0B0B',
+                ],
+                borderWidth: 1
+            }, {
+
+                label: 'Umidade Média',
+                data: [90, 89, 93, 87, 88, 82],
+                backgroundColor: [
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                ],
+                borderColor: [
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                '#478ECB',
+                ],
+                borderWidth: 1
+            }]
+        };
+
+        const config = {
+            type: 'line',
+            data: data,
+        };
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+
+        const config1 = {
+            type: 'bar',
+            data: data2,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+        const myChart2 = new Chart(
+            document.getElementById('myChart2'),
+            config1 
+        );
+    </script>
+</html>
